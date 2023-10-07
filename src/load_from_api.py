@@ -6,7 +6,6 @@ class APIConnection:
         self.mapKey = "0a99be10cfebba71b9e96715339da3c1"
         self.countryToCode = {}
         self.loadCountryToCode()
-        print(self.countryToCode)
 
     def loadCountryToCode(self):
         url = countries_url = 'https://firms.modaps.eosdis.nasa.gov/api/countries'
@@ -30,6 +29,5 @@ class APIConnection:
         url = f'https://firms.modaps.eosdis.nasa.gov/api/country/csv/{self.mapKey}/VIIRS_SNPP_NRT/{self.countryToCode[countryCode]}/1'
         try:
             df = pd.read_csv(url)
-            print(df)
         except:
             print("There is an issue with the query. \nTry in your browser: %s" % url)
