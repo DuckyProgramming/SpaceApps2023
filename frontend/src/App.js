@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Button from "./rerouter";
 import DefaultDisplay from "./defaultDisplay";
 import MapChart from "./MapChart";
+import SideBar from "./sidebar";
 
 function App() {
     // usestate for setting a javascript
@@ -38,17 +39,18 @@ function App() {
                             <p>Current Transactions Used: {data.current_transactions}</p>
                             <Button />
                         </header>
+                    <MapChart />
+                    <SideBar />
                     </div>
                 }/>
             </Routes>
             <Routes>
                 <Route path="/test" element={
+                    <div>
                     <DefaultDisplay />
+                    </div>
                 } />
             </Routes>
-            <div>
-            <MapChart />
-            </div>
         </Router>
 
     );
