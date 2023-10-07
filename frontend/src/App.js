@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import "./rerouter";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Button from "./rerouter";
+import DefaultDisplay from "./defaultDisplay";
 
 function App() {
     // usestate for setting a javascript
@@ -25,14 +27,26 @@ function App() {
     }, []);
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <h1>React and flask</h1>
-                {/* Calling a data from setdata for showing */}
-                <p>Current Transactions Used: {data.current_transactions}</p>
-                <Button />
-            </header>
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element = {
+                    <div className="App">
+                        <header className="App-header">
+                            <h1>React and flask</h1>
+                            {/* Calling a data from setdata for showing */}
+                            <p>Current Transactions Used: {data.current_transactions}</p>
+                            <Button />
+                        </header>
+                    </div>
+                }/>
+            </Routes>
+            <Routes>
+                <Route path="/test" element={
+                    <DefaultDisplay />
+                } />
+            </Routes>
+        </Router>
+
     );
 }
 

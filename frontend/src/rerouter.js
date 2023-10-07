@@ -2,7 +2,7 @@ import React from 'react';
 
 class Button extends React.Component {
   handleClick = () => {
-    window.open("https://localhost:3000/test.html")
+    window.open("http://localhost:3000/test")
   }
 
   render() {

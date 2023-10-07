@@ -20,7 +20,7 @@ class APIConnection:
         url = 'https://firms.modaps.eosdis.nasa.gov/mapserver/mapkey_status/?MAP_KEY=' + self.mapKey
         try:
             df = pd.read_json(url, typ='series')
-            return df.get('current_transactions').to_json()
+            return df.get(['current_transactions']).to_json()
         except:
             # possible error, wrong MAP_KEY value, check for extra quotes, missing letters
             print("There is an issue with the query. \nTry in your browser: %s" % url)
