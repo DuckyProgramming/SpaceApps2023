@@ -13,14 +13,12 @@ function App() {
             <Routes>
                 <Route path="/" element = {
                     <div className="App">
-                        <header className="App-header">
-                            <h1>placeholder</h1>
-                            {/* Calling a data from setdata for showing */}
-                            <Button />           
-                            <MapChart />
-                        </header>
-                    <MapChart />
-                    <SideBar />
+                        <div className="toRow">
+                            <div className="stayRigid">
+                                <MapChart />
+                            </div>
+                                <SideBar />
+                            </div>
                     </div>
                 }/>
             </Routes>

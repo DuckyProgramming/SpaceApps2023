@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background:url(../public/Paperballs.png);
+  background-repeat: repeat;
+  background-position: right top;
+  background-size: 100vw 100vh;
 }
 
 .App-logo {
@@ -29,6 +33,18 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.toRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.stayRigid {
+  width: 75vw;
+  height: 100vh;
 }
 
 @keyframes App-logo-spin {
