@@ -13,6 +13,12 @@ const colorScale = scaleLinear()
 const MapChart = () => {
   const [data, setData] = useState([]);
   const [zoom, setZoom] = useState([10]);
+  const [selectedCountry, setSelectedCountry] = useState("");
+
+  const handleCountryClick = (geo) => {
+    setSelectedCountry(geo.properties.name);
+    alert("pressed " + geo.properties.name)
+  };
 
   useEffect(() => {
     csv(`/vulnerability.csv`).then((data) => {
@@ -54,6 +60,7 @@ const MapChart = () => {
                         hover: { outline: 'none' },
                         pressed: { outline: 'none' },
                       }}
+                      onClick={() => handleCountryClick(geo)}
                     />
                   );
                 })
