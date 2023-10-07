@@ -45,6 +45,8 @@
 .stayRigid {
   width: 75vw;
   height: 100vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
 }
 
 @keyframes App-logo-spin {

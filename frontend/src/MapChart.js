@@ -25,8 +25,9 @@ const MapChart = () => {
         scale: 147
       }}
     >
-      <Sphere stroke="#E4E5E6" strokeWidth={0.5} />
-      <Graticule stroke="#E4E5E6" strokeWidth={0.5} />
+
+      <Sphere stroke="#000000" strokeWidth={0.75} fill="#6480ff"/>
+      <Graticule stroke="#000000" strokeWidth={0.75} />
       {data.length > 0 && (
         <Geographies geography={dataUrl}>
           {({ geographies }) =>
@@ -36,6 +37,8 @@ const MapChart = () => {
                 <Geography
                   geography={geo}
                   fill={d ? colorScale(d["2017"]) : "#F5F4F6"}
+                  stroke="#000000"
+                  strokeWidth={0.5}
                 />
               );
             })
