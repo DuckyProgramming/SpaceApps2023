@@ -6,8 +6,9 @@ conn = APIConnection()
 
 @app.route("/")
 def index():
+    conn.getFireInCountry("USA")
     return "hello, world!"
 
 @app.route("/data")
 def data():
-    return conn.pull()
+    return conn.checkUses()
