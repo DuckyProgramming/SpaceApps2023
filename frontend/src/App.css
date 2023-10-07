@@ -17,7 +17,7 @@
   background:url(../public/Paperballs.png);
   background-repeat: repeat;
   background-position: right top;
-  background-size: 1456px 746px;
+  background-size: 100vw 100vh;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
