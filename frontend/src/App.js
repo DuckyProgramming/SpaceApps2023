@@ -4,6 +4,7 @@ import "./rerouter";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Button from "./rerouter";
 import DefaultDisplay from "./defaultDisplay";
+import MapChart from "./MapChart";
 
 function App() {
     // usestate for setting a javascript
@@ -45,6 +46,9 @@ function App() {
                     <DefaultDisplay />
                 } />
             </Routes>
+            <div>
+            <MapChart />
+            </div>
         </Router>
 
     );
