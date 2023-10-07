@@ -25,7 +25,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <h1>React and flask</h1>
+                <h1>PLACEHOLDER</h1>
                 {/* Calling a data from setdata for showing */}
                 <p>Current Transactions Used: {data.current_transactions}</p>
 
