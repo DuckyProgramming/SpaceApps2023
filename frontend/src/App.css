@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background:url(../public/Paperballs.png);
+  background-color: rgb(190, 223, 236);
   background-repeat: repeat;
   background-position: right top;
   background-size: 100vw 100vh;
@@ -40,13 +40,33 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  height: 150vh;
 }
 
 .stayRigid {
-  width: 75vw;
+  width: 70vw;
   height: 100vh;
   padding-left: 1vw;
   padding-right: 1vw;
+}
+
+.title {
+  font-size: 50px;
+  margin-bottom: 0px;
+}
+
+.basicRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.simpleButton {
+  margin: 10px 20px;
+  width: 80px;
+  height: 30px;
+  border: none;
 }
 
 @keyframes App-logo-spin {

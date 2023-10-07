@@ -15,6 +15,7 @@ function App() {
                     <div className="App">
                         <div className="toRow">
                             <div className="stayRigid">
+                                <h1 className="title">World Map</h1>
                                 <MapChart />
                             </div>
                                 <SideBar />
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/test" element={
                     <div>
                     <DefaultDisplay />
+                    <Button></Button>
                     </div>
                 } />
             </Routes>
