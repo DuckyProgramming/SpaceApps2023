@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import "./rerouter";
+import Button from "./rerouter";
 
 function App() {
     // usestate for setting a javascript
@@ -28,7 +30,7 @@ function App() {
                 <h1>PLACEHOLDER</h1>
                 {/* Calling a data from setdata for showing */}
                 <p>Current Transactions Used: {data.current_transactions}</p>
-
+                <Button />
             </header>
         </div>
     );
