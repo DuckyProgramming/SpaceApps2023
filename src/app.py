@@ -8,3 +8,10 @@ conn = APIConnection()
 def index():
     return "hello, world!"
 
+@app.route("/data")
+def data():
+    return {
+        'Name': "geek",
+        "Age": "22",
+        "programming": "python"
+    }
