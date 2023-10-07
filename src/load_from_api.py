@@ -16,6 +16,7 @@ class APIConnection:
                 self.countryToCode[df_countries['name'][i]] = df_countries['abreviation'][i]
         except Exception as e:
             print(f"There is an issue with the query: {e}. \nTry in your browser: %s" % url)
+
     def checkUses(self):
         url = 'https://firms.modaps.eosdis.nasa.gov/mapserver/mapkey_status/?MAP_KEY=' + self.mapKey
         try:
