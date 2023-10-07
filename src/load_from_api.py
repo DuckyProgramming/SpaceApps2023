@@ -10,6 +10,7 @@ class APIConnection:
         try:
             df = pd.read_json(url, typ='series')
             print(df)
+            return df.to_json()
         except:
             # possible error, wrong MAP_KEY value, check for extra quotes, missing letters
             print("There is an issue with the query. \nTry in your browser: %s" % url)

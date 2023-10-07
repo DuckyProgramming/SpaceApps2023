@@ -8,3 +8,6 @@ conn = APIConnection()
 def index():
     return "hello, world!"
 
+@app.route("/data")
+def data():
+    return conn.pull()
