@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import "./App.css";
 
-class defaultDisplay extends React.Component {
-    render() {
-        return (
-            <div className="App">
-                <header className="App-header">
-                    <h1>React and flask</h1>
-                  <p> Hello, world!</p>
-                </header>
-            </div>
+function DefaultDisplay() {
+    // usestate for setting a javascript
+    // object for storing and using data
+    const [data, setdata] = useState({
+        current_transactions: 0,
+    });
+
+    // Using useEffect for single rendering
+    useEffect(() => {
+        // Using fetch to fetch the api from
+        // flask server it will be redirected to proxy
+        fetch("/data").then((res) =>
+            res.json().then((data) => {
+                // Setting a data from api
+                setdata({
+                    current_transactions: data.current_transactions,
+                });
+            })
         );
-    }
+    }, []);
+
+    return (
+        <div className="App">
+            <header className="App-header">
+            <h1>React and flask</h1>
+                <p>Current Transactions Used: {data.current_transactions}</p>
+            </header>
+        </div>
+
+    );
 }
 
-export default defaultDisplay;
+export default DefaultDisplay;

@@ -34,7 +34,6 @@ const MapChart = () => {
               const d = data.find((s) => s.ISO3 === geo.id);
               return (
                 <Geography
-                  key={geo.rsmKey}
                   geography={geo}
                   fill={d ? colorScale(d["2017"]) : "#F5F4F6"}
                 />
