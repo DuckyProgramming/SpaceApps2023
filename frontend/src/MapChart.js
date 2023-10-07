@@ -49,6 +49,11 @@ const MapChart = () => {
                       fill={d ? colorScale(d["2017"]) : "#F5F4F6"}
                       stroke="#000000"
                       strokeWidth={0.5}
+                      style={{
+                        default: { outline: 'none' },
+                        hover: { outline: 'none' },
+                        pressed: { outline: 'none' },
+                      }}
                     />
                   );
                 })
