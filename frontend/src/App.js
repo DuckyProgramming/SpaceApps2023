@@ -13,7 +13,10 @@ function App(){
     const updateSideBar = useCallback(() => {
         setSideBarNumber(sideBarNumber + 1);
     }, [sideBarNumber]);
-    const selectedCountry = useContext(DataContext)
+    const [selectedCountry, setSelectedCountry] = useState(0);
+    const updateSelectedCountry = useCallback((country) => {
+        setSelectedCountry(country);
+    }, [selectedCountry]);
 
     return (
         <Router>
@@ -23,10 +26,10 @@ function App(){
                         <div className="toRow">
                             <div className="stayRigid">
                             <DataContext.Provider value={selectedCountry}>
-                                <MapChart updateSideBar={updateSideBar}/>
+                                <MapChart updateSideBar={updateSideBar} updateSelectedCountry={updateSelectedCountry}/>
                             </DataContext.Provider>
                             </div>
-                                <SideBar sideBarNumber={sideBarNumber}/>
+                                <SideBar sideBarNumber={sideBarNumber} selectedCountry={selectedCountry}/>
                             </div>
                     </div>
                 }/>

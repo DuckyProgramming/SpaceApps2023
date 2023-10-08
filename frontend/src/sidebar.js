@@ -7,7 +7,7 @@ class SideBar extends React.Component {
         super()
         this.props=props
         this.prevContext=0;
-        this.countryName = "United States";
+        this.countryName = "-";
     }
 
     static contextType = DataContext;
@@ -15,7 +15,8 @@ class SideBar extends React.Component {
     render() {
         if (this.props.sideBarNumber !== this.prevContext) {
             this.prevContext = this.props.sideBarNumber;
-            fetch("http://127.0.0.1:5000/current-selected").then(
+            this.countryName = this.props.selectedCountry
+            fetch("http://127.0.0.1:5000/current-selected",{credentials: "omit"}).then(
                 (res) => res.json().then((data) => {
                     this.countryName = data.country_id[0];
                 }

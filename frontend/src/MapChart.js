@@ -11,9 +11,9 @@ const colorScale = scaleLinear()
   .domain([0.29, 0.68])
   .range(["#32FF32", "#003200"]);
 
-const MapChart = ({updateSideBar}) => {
+const MapChart = ({updateSideBar,updateSelectedCountry}) => {
   const [data, setData] = useState([]);
-  const [zoom, setZoom] = useState([10]);
+  const [zoom, setZoom] = useState([1]);
   const [selectedCountry, setSelectedCountry] = useState("");
 
   const postdata = () => {
@@ -29,6 +29,7 @@ const MapChart = ({updateSideBar}) => {
 };
   const handleCountryClick = (geo) => {
     setSelectedCountry(geo.properties.name);
+    updateSelectedCountry(geo.properties.name);
     updateSideBar(); // Call the function
   };
   useEffect(() => {
@@ -40,10 +41,10 @@ const MapChart = ({updateSideBar}) => {
     });
   }, []);
   const handleZoomIn = () => {
-    setZoom(Math.min(Math.max(zoom+1,1),10));
+    setZoom(Math.min(Math.max(zoom*2,1),8));
   };
   const handleZoomOut = () => {
-    setZoom(Math.min(Math.max(zoom-1,1),10));
+    setZoom(Math.min(Math.max(zoom/2,1),8));
   };
 
   return (

@@ -12,7 +12,7 @@ class APIConnection:
         try:
             df_countries = pd.read_csv(countries_url, sep=';')
             for i in df_countries.index:
-                self.countryToCode[df_countries['name'][i]] = df_countries['abreviation'][i]
+                self.countryToCode[df_countries['name'][i]] = df_countries['abbreviation'][i]
         except Exception as e:
             print(f"There is an issue with the query: {e}. \nTry in your browser: %s" % url)
 
