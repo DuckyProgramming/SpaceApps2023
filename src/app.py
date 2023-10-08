@@ -1,10 +1,11 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request
 from flask_cors import CORS
 from load_from_api import APIConnection
+import pandas as pd
 
 
 class CurrentSelected:
-    def __init__(self, val = None):
+    def __init__(self, val=None):
         self.value = val
 
 
