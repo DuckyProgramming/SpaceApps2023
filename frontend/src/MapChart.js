@@ -3,6 +3,7 @@ import { csv } from "d3-fetch";
 import { scaleLinear } from "d3-scale";
 import { ComposableMap, Geographies, Geography, Sphere, Graticule, ZoomableGroup } from "react-simple-maps";
 import "./App.css";
+import DataContext from "./dataContext";
 
 const dataUrl = "/features.json"
 
@@ -15,11 +16,24 @@ const MapChart = () => {
   const [zoom, setZoom] = useState([10]);
   const [selectedCountry, setSelectedCountry] = useState("");
 
+  const postdata = () => {
+      let data = {country: selectedCountry};
+    let url = 'http://127.0.0.1:5000/specify';
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // Set the content type to JSON
+        },
+        body: JSON.stringify(data)
+    }).then();
+};
+
   const handleCountryClick = (geo) => {
     setSelectedCountry(geo.properties.name);
-    alert("pressed " + geo.properties.name)
   };
-
+  useEffect(() => {
+      postdata()
+  }, [selectedCountry]);
   useEffect(() => {
     csv(`/vulnerability.csv`).then((data) => {
       setData(data);
@@ -33,6 +47,7 @@ const MapChart = () => {
   };
 
   return (
+      <DataContext.Provider value={selectedCountry}>
     <div>
       <ComposableMap
         projectionConfig={{
@@ -74,6 +89,7 @@ const MapChart = () => {
         <button className="simpleButton" onClick={handleZoomOut}>Zoom Out</button>
       </div>
     </div>
+      </DataContext.Provider>
   );
 };
 

@@ -29,5 +29,6 @@ class APIConnection:
         url = f'https://firms.modaps.eosdis.nasa.gov/api/country/csv/{self.mapKey}/VIIRS_SNPP_NRT/{self.countryToCode[countryCode]}/1'
         try:
             df = pd.read_csv(url)
+            return df.to_json()
         except:
             print("There is an issue with the query. \nTry in your browser: %s" % url)

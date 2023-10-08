@@ -18,8 +18,8 @@ function App() {
                                 <h1 className="title">World Map</h1>
                                 <MapChart />
                             </div>
-                                <SideBar />
-                            </div>
+                            <SideBar />
+                        </div>
                     </div>
                 }/>
             </Routes>
