@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState, useContext, useCallback} from "react";
 import "./App.css";
 import "./rerouter";
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Button from "./rerouter";
 import DefaultDisplay from "./defaultDisplay";
 import MapChart from "./MapChart";
 import SideBar from "./sidebar";
+import DataContext from "./dataContext";
 
-function App() {
+function App(){
+    const [sideBarNumber, setSideBarNumber] = useState(0);
+    const updateSideBar = useCallback(() => {
+        setSideBarNumber(sideBarNumber + 1);
+    }, [sideBarNumber]);
+    const selectedCountry = useContext(DataContext)
+
     return (
         <Router>
             <Routes>
@@ -15,11 +22,12 @@ function App() {
                     <div className="App">
                         <div className="toRow">
                             <div className="stayRigid">
-                                <h1 className="title">World Map</h1>
-                                <MapChart />
+                            <DataContext.Provider value={selectedCountry}>
+                                <MapChart updateSideBar={updateSideBar}/>
+                            </DataContext.Provider>
                             </div>
-                            <SideBar />
-                        </div>
+                                <SideBar sideBarNumber={sideBarNumber}/>
+                            </div>
                     </div>
                 }/>
             </Routes>
@@ -27,7 +35,7 @@ function App() {
                 <Route path="/test" element={
                     <div>
                     <DefaultDisplay />
-                    <Button></Button>
+                    <Button />
                     </div>
                 } />
             </Routes>

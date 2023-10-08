@@ -11,7 +11,7 @@ const colorScale = scaleLinear()
   .domain([0.29, 0.68])
   .range(["#32FF32", "#003200"]);
 
-const MapChart = () => {
+const MapChart = ({updateSideBar}) => {
   const [data, setData] = useState([]);
   const [zoom, setZoom] = useState([10]);
   const [selectedCountry, setSelectedCountry] = useState("");
@@ -22,14 +22,14 @@ const MapChart = () => {
     fetch(url, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json' // Set the content type to JSON
+            'Content-Type': 'appl Whenication/json' // Set the content type to JSON
         },
         body: JSON.stringify(data)
     }).then();
 };
-
   const handleCountryClick = (geo) => {
     setSelectedCountry(geo.properties.name);
+    updateSideBar(); // Call the function
   };
   useEffect(() => {
       postdata()

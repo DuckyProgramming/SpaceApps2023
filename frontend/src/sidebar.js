@@ -3,17 +3,19 @@ import "./sidebar.css"
 import DataContext from "./dataContext";
 
 class SideBar extends React.Component {
+    constructor(props){
+        super()
+        this.props=props
+        this.prevContext=0;
+    }
 
     static contextType = DataContext;
 
-    prevContext = null;
-
     render() {
-        if (this.context !== this.prevContext) {
-            alert("Changed!")
-            this.prevContext = this.context;
+        if (this.props.sideBarNumber !== this.prevContext) {
+            this.prevContext = this.props.sideBarNumber;
+            alert('Changed!')
         }
-        console.log(this.context)
         return (
             <div className="sidebar">
                 <h1>Fire Data</h1>
