@@ -7,7 +7,7 @@ class SideBar extends React.Component {
         super()
         this.props=props
         this.prevContext=0;
-        this.countryName = "-";
+        this.countryName = "United States";
     }
 
     static contextType = DataContext;

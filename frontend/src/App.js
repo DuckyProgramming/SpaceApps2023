@@ -7,6 +7,8 @@ import DefaultDisplay from "./defaultDisplay";
 import MapChart from "./MapChart";
 import SideBar from "./sidebar";
 import DataContext from "./dataContext";
+import FireInfo from "./fireInfo";
+import FireInfo2 from "./fireInfo2";
 
 function App(){
     const [sideBarNumber, setSideBarNumber] = useState(0);
@@ -21,7 +23,12 @@ function App(){
     return (
         <Router>
             <Routes>
-                <Route path="/" element = {
+                <Route path="/" element={
+                    <div>
+                    <FireInfo />
+                    </div>
+                } />
+                <Route path="/map" element = {
                     <div className="App">
                         <div className="toRow">
                             <div className="stayRigid">
@@ -33,12 +40,15 @@ function App(){
                             </div>
                     </div>
                 }/>
-            </Routes>
-            <Routes>
                 <Route path="/test" element={
                     <div>
                     <DefaultDisplay />
                     <Button />
+                    </div>
+                } />
+                <Route path="/info" element={
+                    <div>
+                    <FireInfo2 />
                     </div>
                 } />
             </Routes>
